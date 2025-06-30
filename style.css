@@ -118,6 +118,10 @@ body.day-mode {
 
 /* === Theme Toggle Button === */
 #theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
   font-family: 'Fredoka One', cursive;
   background: linear-gradient(90deg, #00f7ff, #0099ff);
   color: white;
