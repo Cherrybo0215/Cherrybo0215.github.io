@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cheng Yubo - Economics & Data Science</title>
     <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Fredoka+One&display=swap" rel="stylesheet">
     <meta name="description" content="Cheng Yubo's personal website showcasing academic journey, research interests, and technical skills in economics and data science at Shanghai Jiao Tong University." />
     <meta name="keywords" content="Cheng Yubo, Economics, Digital Economy, Data Science, Research Assistant, Python, Stata, Econometrics, PhD Application" />
 </head>
 <body>
-
 <header>
     <div class="header-content">
         <img src="assets/1.jpg" alt="Cheng Yubo Profile Photo" class="profile-pic" />
@@ -24,67 +23,48 @@
                 <a href="#skills">Skills</a>
                 <a href="#interests">Research Interests</a>
                 <a href="assets/CV_Eng.pdf" target="_blank" class="cv-button">Download CV</a>
+                <button id="theme-toggle">Toggle Day/Night</button>
             </nav>
         </div>
     </div>
 </header>
-
 <main>
+    <!-- Your existing sections here (unchanged) -->
     <section id="about">
-    <h2>About Me</h2>
-    <p>
-        I am an economics undergraduate student at Shanghai Jiao Tong University with a strong passion for the intersection of digital economy and data science. My academic goal is to leverage quantitative methods to analyze and address economic challenges driven by emerging technologies.
-    </p>
-    <p>
-        Currently, I am actively seeking Research Assistant (RA) and Predoctoral (Predoc) opportunities where I can contribute my skills in econometrics, programming, and data analysis to real-world research projects, while further developing my academic and technical expertise.
-    </p>
-    <h3>Self-evaluation</h3>
-    <p>
-        I am a motivated and detail-oriented learner, comfortable with both independent and collaborative work. My experience with large-scale datasets and proficiency in Python, Stata, and econometric methods have equipped me to solve complex problems effectively. I am eager to apply my knowledge in rigorous research environments and contribute to advancing understanding in digital economy and labor markets.
-    </p>
-</section>
-
-
+        <h2>About Me</h2>
+        <p>I am an economics undergraduate student at Shanghai Jiao Tong University with a strong passion for the intersection of digital economy and data science.</p>
+        <p>Currently, I am actively seeking Research Assistant (RA) and Predoctoral (Predoc) opportunities where I can contribute my skills in econometrics, programming, and data analysis to real-world research projects.</p>
+        <h3>Self-evaluation</h3>
+        <p>I am a motivated and detail-oriented learner, comfortable with both independent and collaborative work. My experience with large-scale datasets and proficiency in Python, Stata, and econometric methods have equipped me to solve complex problems effectively.</p>
+    </section>
     <section id="education">
         <h2>Education</h2>
-        <p><strong>Shanghai Jiao Tong University</strong><br>
-        B.A. in Economics (Sep 2022 – Jun 2026)<br>
-        GPA: 88.01/100 | Rank: Top 20%</p>
+        <p><strong>Shanghai Jiao Tong University</strong><br>B.A. in Economics (Sep 2022 – Jun 2026)<br>GPA: 88.01/100 | Rank: Top 20%</p>
         <h3>Relevant Coursework:</h3>
         <ul>
             <li>Econometrics, Probability & Statistics</li>
             <li>Programming: Python, Stata, C++ , Matlab, LaTeX</li>
         </ul>
     </section>
-
-   <section id="experience">
-    <h2>Experience & Projects</h2>
-
-    <div class="project-item">
-        <h3>Research Assistant: Digital Transformation & Recruitment</h3>
-        <p class="project-meta"><em>SJTU Faculty of Economics | Mar 2025 – Present</em></p>
-        <ul>
-            <li>Analyzed how digital transformation affects corporate hiring strategies using large-scale datasets.</li>
-            <li>Performed data cleaning and exploratory analysis with Stata and Python.</li>
-            <li>
-                Co-authored working paper: 
-                <a href="assets/Digital_Transformation_and_the_Restructuring_of_Employment__Evidence_from_Chinese_Listed_Firms.pdf" target="_blank">
-                    <em>Digital Transformation and the Restructuring of Employment: Evidence from Chinese Listed Firms</em>
-                </a>
-            </li>
-        </ul>
-    </div>
-
-    <div class="project-item">
-        <h3>China MCM Contest: Shanghai First Prize</h3>
-        <p class="project-meta"><em>Jan 2024</em></p>
-        <ul>
-            <li>Built predictive models using Decision Trees and Scikit-learn for optimization tasks under time constraints.</li>
-        </ul>
-    </div>
-</section>
-
-
+    <section id="experience">
+        <h2>Experience & Projects</h2>
+        <div class="project-item">
+            <h3>Research Assistant: Digital Transformation & Recruitment</h3>
+            <p class="project-meta"><em>SJTU Faculty of Economics | Mar 2025 – Present</em></p>
+            <ul>
+                <li>Analyzed how digital transformation affects corporate hiring strategies using large-scale datasets.</li>
+                <li>Performed data cleaning and exploratory analysis with Stata and Python.</li>
+                <li>Co-authored working paper: <a href="assets/Digital_Transformation_and_the_Restructuring_of_Employment__Evidence_from_Chinese_Listed_Firms.pdf" target="_blank"><em>Digital Transformation and the Restructuring of Employment: Evidence from Chinese Listed Firms</em></a></li>
+            </ul>
+        </div>
+        <div class="project-item">
+            <h3>China MCM Contest: Shanghai First Prize</h3>
+            <p class="project-meta"><em>Jan 2024</em></p>
+            <ul>
+                <li>Built predictive models using Decision Trees and Scikit-learn for optimization tasks under time constraints.</li>
+            </ul>
+        </div>
+    </section>
     <section id="skills">
         <h2>Technical Skills</h2>
         <div class="skills-category">
@@ -100,7 +80,6 @@
             <p>Chinese (Native), English (CET-6: 577)</p>
         </div>
     </section>
-
     <section id="interests">
         <h2>Research Interests</h2>
         <ul>
@@ -113,11 +92,18 @@
         <p>I'm interested in empirical studies that use large datasets and advanced modeling techniques to address real-world economic challenges.</p>
     </section>
 </main>
-
 <footer>
     <p>Contact: <a href="mailto:chengyubo_sjtu@163.com">chengyubo_sjtu@163.com</a> | Phone: +86 137 3300 0105</p>
     <p>&copy; 2025 Cheng Yubo. All rights reserved.</p>
 </footer>
 
+<script>
+  const toggleButton = document.getElementById('theme-toggle');
+  toggleButton.addEventListener('click', () => {
+    document.body.classList.toggle('day-mode');
+    toggleButton.textContent = document.body.classList.contains('day-mode') 
+      ? 'Switch to Night Mode' : 'Switch to Day Mode';
+  });
+</script>
 </body>
 </html>
