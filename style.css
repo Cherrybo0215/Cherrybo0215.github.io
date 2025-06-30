@@ -1,172 +1,172 @@
 /* General Body & Typography */
 body {
-    font-family: 'Inter', 'Segoe UI', 'Roboto', sans-serif; /* Modern font stack */
+    font-family: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background: #f8f9fa; /* Lighter, subtle background */
-    color: #343a40; /* Darker, softer text color */
-    line-height: 1.6; /* Improved readability */
-    font-size: 1.05rem; /* Slightly larger base font size */
+    background: #f8f9fa;
+    color: #343a40;
+    line-height: 1.6;
+    font-size: 1.05rem;
 }
 
 /* Header Section */
 header {
-    background: linear-gradient(135deg, #2c3e50, #4a69bd); /* Deeper, more modern gradient */
+    background: linear-gradient(135deg, #2c3e50, #4a69bd);
     color: white;
-    padding: 3rem 1.5rem; /* More vertical padding for prominence */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Stronger, softer shadow */
-    text-align: center; /* Center header content by default */
+    padding: 3rem 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 
 .header-content {
     display: flex;
-    flex-direction: column; /* Stack elements vertically on small screens */
+    flex-direction: column;
     align-items: center;
-    max-width: 1000px; /* Constrain content width */
-    margin: 0 auto; /* Center content horizontally */
-    gap: 1.5rem; /* Slightly reduced gap for tighter layout */
+    max-width: 1000px;
+    margin: 0 auto;
+    gap: 1.5rem;
 }
 
 @media (min-width: 768px) {
     .header-content {
-        flex-direction: row; /* Row layout on larger screens */
-        justify-content: flex-start; /* Align content to start on desktop */
-        text-align: left; /* Align text left on desktop */
+        flex-direction: row;
+        justify-content: flex-start;
+        text-align: left;
     }
 }
 
 .profile-pic {
-    width: 180px; /* Slightly larger profile picture */
+    width: 180px;
     height: 180px;
     border-radius: 50%;
     object-fit: cover;
-    border: 5px solid rgba(255, 255, 255, 0.9); /* Thicker, slightly transparent border */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* More pronounced shadow */
-    transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+    border: 5px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
 }
 
 .profile-pic:hover {
-    transform: scale(1.05); /* Slight zoom on hover */
+    transform: scale(1.05);
 }
 
 .text-block {
-    margin-left: 0; /* Reset margin */
+    margin-left: 0;
 }
 
 @media (min-width: 768px) {
     .text-block {
-        margin-left: 2rem; /* Add margin to text block on desktop */
+        margin-left: 2rem;
     }
 }
 
 h1 {
-    font-size: 2.8rem; /* Larger, more impactful name */
+    font-size: 2.8rem;
     margin-bottom: 0.5rem;
-    font-weight: 700; /* Bolder */
+    font-weight: 700;
     color: #ffffff;
 }
 
 header p {
-    font-size: 1.25rem; /* Larger tagline */
+    font-size: 1.25rem;
     margin-top: 0;
     margin-bottom: 1.5rem;
-    color: #e0e6ec; /* Softer white for tagline */
+    color: #e0e6ec;
 }
 
 /* Navigation */
 nav {
-    margin-top: 1.5rem; /* More space above nav */
+    margin-top: 1.5rem;
     display: flex;
-    flex-wrap: wrap; /* Allow nav items to wrap */
-    justify-content: center; /* Center nav items */
-    gap: 1.2rem; /* Spacing between nav items */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem;
 }
 
 nav a {
     color: #e0e6ec;
     text-decoration: none;
-    font-weight: 600; /* Slightly bolder */
-    padding: 0.6rem 0.8rem; /* Padding for clickability */
+    font-weight: 600;
+    padding: 0.6rem 0.8rem;
     border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 nav a:hover {
-    background-color: rgba(255, 255, 255, 0.15); /* Subtle highlight on hover */
+    background-color: rgba(255, 255, 255, 0.15);
     color: white;
 }
 
 nav a.cv-button {
-    background-color: #e74c3c; /* Brighter, more inviting red */
+    background-color: #e74c3c;
     color: white;
-    padding: 0.6rem 1.2rem; /* More padding */
-    border-radius: 25px; /* Pill-shaped button */
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
     font-weight: 700;
-    box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3); /* Shadow for button */
+    box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 nav a.cv-button:hover {
-    background-color: #c0392b; /* Darker red on hover */
-    transform: translateY(-2px); /* Slight lift */
+    background-color: #c0392b;
+    transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(231, 76, 60, 0.4);
 }
 
 /* Main Content Area */
 main {
-    padding: 3rem 1.5rem; /* More padding for main content */
-    max-width: 960px; /* Wider content area */
+    padding: 3rem 1.5rem;
+    max-width: 960px;
     margin: auto;
-    background-color: white; /* White background for content sections */
-    border-radius: 10px; /* Rounded corners for the main container */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.08); /* Soft overall shadow */
-    margin-top: -60px; /* Overlap header for a cohesive look */
-    position: relative; /* For z-index if needed */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+    margin-top: -60px;
+    position: relative;
     z-index: 1;
 }
 
 section {
-    margin-bottom: 3.5rem; /* Increased spacing between sections */
-    padding-bottom: 1.5rem; /* Padding inside sections */
-    border-bottom: 1px dashed #ced4da; /* Subtle dashed separator */
+    margin-bottom: 3.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px dashed #ced4da;
 }
 
 section:last-of-type {
-    border-bottom: none; /* No border for the last section */
+    border-bottom: none;
     margin-bottom: 0;
     padding-bottom: 0;
 }
 
 h2 {
-    font-size: 2.2rem; /* Larger section titles */
-    color: #2c3e50; /* Matches header's darker blue */
-    border-bottom: 3px solid #4a69bd; /* Stronger, matching accent color underline */
+    font-size: 2.2rem;
+    color: #2c3e50;
+    border-bottom: 3px solid #4a69bd;
     padding-bottom: 0.8rem;
-    margin-bottom: 1.8rem; /* More space below title */
+    margin-bottom: 1.8rem;
     font-weight: 600;
 }
 
 h3 {
-    font-size: 1.5rem; /* Sub-section titles */
+    font-size: 1.5rem;
     color: #34495e;
     margin-top: 2rem;
     margin-bottom: 1rem;
 }
 
 ul {
-    list-style-type: none; /* Remove default bullet points */
+    list-style-type: none;
     padding: 0;
 }
 
 ul li {
     position: relative;
-    padding-left: 1.8rem; /* Space for custom bullet */
+    padding-left: 1.8rem;
     margin-bottom: 0.8rem;
 }
 
 ul li::before {
-    content: '\2022'; /* Unicode bullet character */
-    color: #4a69bd; /* Accent color for bullets */
+    content: '\2022';
+    color: #4a69bd;
     font-weight: bold;
     display: inline-block;
     width: 1rem;
@@ -177,23 +177,23 @@ ul li::before {
 
 /* Specific Project Item Styling */
 .project-item {
-    background-color: #f8f9fa; /* Light background for project items */
+    background-color: #f8f9fa;
     border: 1px solid #e9ecef;
-    border-left: 5px solid #4a69bd; /* Accent border on the left */
+    border-left: 5px solid #4a69bd;
     border-radius: 8px;
     padding: 1.5rem;
-    margin-bottom: 1.8rem; /* Space between project items */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow for items */
+    margin-bottom: 1.8rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .project-item:hover {
-    transform: translateY(-3px); /* Lift effect on hover */
+    transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .project-item h3 {
-    color: #2c3e50; /* Darker title for projects */
+    color: #2c3e50;
     margin-top: 0;
     margin-bottom: 0.5rem;
     font-size: 1.6rem;
@@ -207,12 +207,12 @@ ul li::before {
 
 .project-item ul {
     margin-top: 1rem;
-    list-style-type: disc; /* Use default disc bullets for nested lists */
+    list-style-type: disc;
     padding-left: 1.5rem;
 }
 
 .project-item ul li::before {
-    content: none; /* Remove custom bullet for nested list items */
+    content: none;
 }
 
 /* Skills Category Styling */
@@ -223,7 +223,7 @@ ul li::before {
 .skills-category h3 {
     font-size: 1.3rem;
     color: #495057;
-    border-bottom: 1px dashed #dee2e6; /* Subtle line for categories */
+    border-bottom: 1px dashed #dee2e6;
     padding-bottom: 0.5rem;
     margin-bottom: 0.8rem;
 }
@@ -236,27 +236,27 @@ ul li::before {
 /* Horizontal Rule for Section Separation */
 hr {
     border: none;
-    border-top: 1px solid #e0e0e0; /* Lighter horizontal rule */
-    margin: 3rem 0; /* More spacing */
+    border-top: 1px solid #e0e0e0;
+    margin: 3rem 0;
 }
 
 /* Footer */
 footer {
-    background-color: #2c3e50; /* Matches header's darker blue */
+    background-color: #2c3e50;
     color: white;
     text-align: center;
-    padding: 1.5rem; /* More padding */
+    padding: 1.5rem;
     font-size: 0.9rem;
-    margin-top: 4rem; /* More space above footer */
+    margin-top: 4rem;
 }
 
 footer a {
-    color: #85a2d6; /* Lighter blue for footer links */
+    color: #85a2d6;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 footer a:hover {
-    color: #b7cceb; /* Lighter on hover */
+    color: #b7cceb;
     text-decoration: underline;
 }
