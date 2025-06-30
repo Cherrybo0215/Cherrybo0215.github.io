@@ -1,75 +1,262 @@
-
+/* General Body & Typography */
 body {
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Inter', 'Segoe UI', 'Roboto', sans-serif; /* Modern font stack */
     margin: 0;
     padding: 0;
-    background: #f3f6f9;
-    color: #333;
+    background: #f8f9fa; /* Lighter, subtle background */
+    color: #343a40; /* Darker, softer text color */
+    line-height: 1.6; /* Improved readability */
+    font-size: 1.05rem; /* Slightly larger base font size */
 }
 
+/* Header Section */
 header {
-    background: linear-gradient(to right, #2b2d42, #3f475b);
+    background: linear-gradient(135deg, #2c3e50, #4a69bd); /* Deeper, more modern gradient */
     color: white;
-    padding: 2rem 1rem;
+    padding: 3rem 1.5rem; /* More vertical padding for prominence */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Stronger, softer shadow */
+    text-align: center; /* Center header content by default */
 }
 
 .header-content {
     display: flex;
+    flex-direction: column; /* Stack elements vertically on small screens */
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 2rem;
+    max-width: 1000px; /* Constrain content width */
+    margin: 0 auto; /* Center content horizontally */
+    gap: 1.5rem; /* Slightly reduced gap for tighter layout */
+}
+
+@media (min-width: 768px) {
+    .header-content {
+        flex-direction: row; /* Row layout on larger screens */
+        justify-content: flex-start; /* Align content to start on desktop */
+        text-align: left; /* Align text left on desktop */
+    }
 }
 
 .profile-pic {
-    width: 160px;
-    height: 160px;
+    width: 180px; /* Slightly larger profile picture */
+    height: 180px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid white;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border: 5px solid rgba(255, 255, 255, 0.9); /* Thicker, slightly transparent border */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* More pronounced shadow */
+    transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+.profile-pic:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
 }
 
 .text-block {
-    text-align: center;
+    margin-left: 0; /* Reset margin */
 }
 
+@media (min-width: 768px) {
+    .text-block {
+        margin-left: 2rem; /* Add margin to text block on desktop */
+    }
+}
+
+h1 {
+    font-size: 2.8rem; /* Larger, more impactful name */
+    margin-bottom: 0.5rem;
+    font-weight: 700; /* Bolder */
+    color: #ffffff;
+}
+
+header p {
+    font-size: 1.25rem; /* Larger tagline */
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: #e0e6ec; /* Softer white for tagline */
+}
+
+/* Navigation */
 nav {
-    margin-top: 1rem;
+    margin-top: 1.5rem; /* More space above nav */
+    display: flex;
+    flex-wrap: wrap; /* Allow nav items to wrap */
+    justify-content: center; /* Center nav items */
+    gap: 1.2rem; /* Spacing between nav items */
 }
 
 nav a {
-    color: #edf2f4;
-    margin: 0 0.75rem;
+    color: #e0e6ec;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600; /* Slightly bolder */
+    padding: 0.6rem 0.8rem; /* Padding for clickability */
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover */
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.15); /* Subtle highlight on hover */
+    color: white;
 }
 
 nav a.cv-button {
-    background-color: #ef233c;
+    background-color: #e74c3c; /* Brighter, more inviting red */
     color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
+    padding: 0.6rem 1.2rem; /* More padding */
+    border-radius: 25px; /* Pill-shaped button */
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3); /* Shadow for button */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
+nav a.cv-button:hover {
+    background-color: #c0392b; /* Darker red on hover */
+    transform: translateY(-2px); /* Slight lift */
+    box-shadow: 0 6px 15px rgba(231, 76, 60, 0.4);
+}
+
+/* Main Content Area */
 main {
-    padding: 2rem 1rem;
-    max-width: 900px;
+    padding: 3rem 1.5rem; /* More padding for main content */
+    max-width: 960px; /* Wider content area */
     margin: auto;
+    background-color: white; /* White background for content sections */
+    border-radius: 10px; /* Rounded corners for the main container */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.08); /* Soft overall shadow */
+    margin-top: -60px; /* Overlap header for a cohesive look */
+    position: relative; /* For z-index if needed */
+    z-index: 1;
 }
 
 section {
-    margin-bottom: 2.5rem;
+    margin-bottom: 3.5rem; /* Increased spacing between sections */
+    padding-bottom: 1.5rem; /* Padding inside sections */
+    border-bottom: 1px dashed #ced4da; /* Subtle dashed separator */
+}
+
+section:last-of-type {
+    border-bottom: none; /* No border for the last section */
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 h2 {
-    border-bottom: 2px solid #8d99ae;
-    padding-bottom: 0.3rem;
+    font-size: 2.2rem; /* Larger section titles */
+    color: #2c3e50; /* Matches header's darker blue */
+    border-bottom: 3px solid #4a69bd; /* Stronger, matching accent color underline */
+    padding-bottom: 0.8rem;
+    margin-bottom: 1.8rem; /* More space below title */
+    font-weight: 600;
 }
 
+h3 {
+    font-size: 1.5rem; /* Sub-section titles */
+    color: #34495e;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+ul {
+    list-style-type: none; /* Remove default bullet points */
+    padding: 0;
+}
+
+ul li {
+    position: relative;
+    padding-left: 1.8rem; /* Space for custom bullet */
+    margin-bottom: 0.8rem;
+}
+
+ul li::before {
+    content: '\2022'; /* Unicode bullet character */
+    color: #4a69bd; /* Accent color for bullets */
+    font-weight: bold;
+    display: inline-block;
+    width: 1rem;
+    margin-left: -1.8rem;
+    position: absolute;
+    left: 0;
+}
+
+/* Specific Project Item Styling */
+.project-item {
+    background-color: #f8f9fa; /* Light background for project items */
+    border: 1px solid #e9ecef;
+    border-left: 5px solid #4a69bd; /* Accent border on the left */
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.8rem; /* Space between project items */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow for items */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-item:hover {
+    transform: translateY(-3px); /* Lift effect on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.project-item h3 {
+    color: #2c3e50; /* Darker title for projects */
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.6rem;
+}
+
+.project-meta {
+    font-size: 0.95rem;
+    color: #6c757d;
+    margin-bottom: 1rem;
+}
+
+.project-item ul {
+    margin-top: 1rem;
+    list-style-type: disc; /* Use default disc bullets for nested lists */
+    padding-left: 1.5rem;
+}
+
+.project-item ul li::before {
+    content: none; /* Remove custom bullet for nested list items */
+}
+
+/* Skills Category Styling */
+.skills-category {
+    margin-bottom: 1.5rem;
+}
+
+.skills-category h3 {
+    font-size: 1.3rem;
+    color: #495057;
+    border-bottom: 1px dashed #dee2e6; /* Subtle line for categories */
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.skills-category p {
+    font-size: 1.05rem;
+    color: #495057;
+}
+
+/* Horizontal Rule for Section Separation */
+hr {
+    border: none;
+    border-top: 1px solid #e0e0e0; /* Lighter horizontal rule */
+    margin: 3rem 0; /* More spacing */
+}
+
+/* Footer */
 footer {
-    background-color: #2b2d42;
+    background-color: #2c3e50; /* Matches header's darker blue */
     color: white;
     text-align: center;
-    padding: 1rem;
+    padding: 1.5rem; /* More padding */
+    font-size: 0.9rem;
+    margin-top: 4rem; /* More space above footer */
+}
+
+footer a {
+    color: #85a2d6; /* Lighter blue for footer links */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #b7cceb; /* Lighter on hover */
+    text-decoration: underline;
 }
