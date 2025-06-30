@@ -18,6 +18,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Day mode styles */
+body.day-mode {
+  font-family: 'Fredoka One', cursive !important;
+  background: linear-gradient(135deg, #ffe6f0, #fff0f5);
+  color: #333;
+}
+
 /* Container */
 header, main, footer {
   width: 90%;
@@ -30,6 +37,16 @@ header, main, footer {
   box-shadow:
     0 8px 32px 0 rgba(31, 38, 135, 0.37),
     0 0 0 1px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+header.day-mode,
+main.day-mode,
+footer.day-mode {
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow:
+    0 8px 32px 0 rgba(255, 192, 203, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.3);
 }
 
 /* Header */
@@ -40,7 +57,6 @@ header {
   flex-wrap: wrap;
   margin-bottom: 40px;
 }
-
 .profile-pic {
   width: 140px;
   height: 140px;
@@ -58,7 +74,6 @@ header {
     0 0 20px #00fff7,
     0 0 50px #00fff7;
 }
-
 .text-block h1 {
   font-size: 3rem;
   font-weight: 900;
@@ -68,7 +83,6 @@ header {
     0 0 20px #00c9c9;
   margin-bottom: 6px;
 }
-
 .text-block p {
   font-size: 1.2rem;
   font-weight: 600;
@@ -83,7 +97,6 @@ nav {
   flex-wrap: wrap;
   gap: 18px;
 }
-
 nav a {
   position: relative;
   color: #00f0ff;
@@ -96,7 +109,6 @@ nav a {
   overflow: hidden;
   z-index: 0;
 }
-
 nav a::before {
   content: '';
   position: absolute;
@@ -109,16 +121,13 @@ nav a::before {
   border-radius: 12px;
   z-index: -1;
 }
-
 nav a:hover::before {
   left: 0;
 }
-
 nav a:hover {
   color: #020202;
   font-weight: 800;
 }
-
 /* CV Button */
 .cv-button {
   background: linear-gradient(90deg, #00f7ff, #0099ff);
@@ -132,18 +141,12 @@ nav a:hover {
   border-radius: 16px;
   transition: 0.3s ease;
 }
-
 .cv-button:hover {
   background: linear-gradient(90deg, #0099ff, #00f7ff);
   box-shadow:
     0 0 30px #00f7ff,
     0 0 50px #0099ff;
   color: #fff !important;
-}
-
-/* Main */
-main {
-  padding-bottom: 40px;
 }
 
 /* Sections */
@@ -157,14 +160,12 @@ section {
     inset 0 0 10px rgba(0, 255, 255, 0.1);
   transition: transform 0.25s ease;
 }
-
 section:hover {
   transform: translateY(-6px);
   box-shadow:
     0 0 25px rgba(0, 255, 255, 0.4),
     inset 0 0 15px rgba(0, 255, 255, 0.2);
 }
-
 section h2 {
   font-size: 2.4rem;
   font-weight: 900;
@@ -176,27 +177,23 @@ section h2 {
   border-bottom: 3px solid #00a1ff;
   padding-bottom: 6px;
 }
-
 section h3 {
   font-weight: 700;
   color: #00bfff;
   margin-bottom: 14px;
 }
-
 /* Paragraph */
 p {
   color: #b0e6f9;
   margin-bottom: 16px;
   font-weight: 500;
 }
-
 /* Lists */
 ul {
   list-style: none;
   padding-left: 22px;
   margin-bottom: 20px;
 }
-
 ul li {
   position: relative;
   padding-left: 20px;
@@ -206,7 +203,6 @@ ul li {
   letter-spacing: 0.02em;
   font-size: 1.05rem;
 }
-
 /* Glow blue bullet */
 ul li::before {
   content: '';
@@ -221,7 +217,6 @@ ul li::before {
   box-shadow: 0 0 8px #00f7ff;
   filter: drop-shadow(0 0 4px #00e0ff);
 }
-
 /* Project item meta */
 .project-meta {
   font-style: italic;
@@ -230,12 +225,10 @@ ul li::before {
   font-weight: 600;
   font-size: 0.95rem;
 }
-
 /* Skills categories */
 .skills-category {
   margin-bottom: 28px;
 }
-
 /* Footer */
 footer {
   text-align: center;
@@ -244,7 +237,6 @@ footer {
   color: #55c7ffcc;
   border-top: 1px solid #0a2233;
 }
-
 /* Responsive */
 @media (max-width: 600px) {
   header {
@@ -252,29 +244,69 @@ footer {
     align-items: center;
     gap: 16px;
   }
-
   .profile-pic {
     width: 110px;
     height: 110px;
   }
-
   .text-block h1 {
     font-size: 2rem;
     text-align: center;
   }
-
   nav {
     justify-content: center;
   }
-
   section {
     padding: 20px;
   }
-
   ul li {
     font-size: 1rem;
   }
 }
 
-    text-decoration: underline;
+/* Day mode overrides */
+body.day-mode h1,
+body.day-mode h2,
+body.day-mode h3,
+body.day-mode p,
+body.day-mode li,
+body.day-mode a {
+  font-family: 'Fredoka One', cursive !important;
+  color: #333 !important;
+}
+
+.text-block h1.day-mode {
+  color: #ff66a3;
+  text-shadow: 0 0 10px #ff99c2;
+}
+
+nav a.day-mode {
+  color: #cc338b !important;
+}
+
+.cv-button.day-mode {
+  background: linear-gradient(90deg, #ff99c2, #ff66a3);
+  color: #fff !important;
+  box-shadow:
+    0 0 15px #ff99c2,
+    0 0 25px #ff66a3;
+}
+
+section.day-mode {
+  background: rgba(255, 255, 255, 0.7);
+  color: #333;
+}
+
+section h2.day-mode {
+  color: #ff66a3;
+  text-shadow: 0 0 10px #ff99c2;
+  border-bottom-color: #ff99c2;
+}
+
+section h3.day-mode {
+  color: #cc338b;
+}
+
+ul li.day-mode::before {
+  background: radial-gradient(circle, #ff99c2 60%, transparent 90%);
+  box-shadow: 0 0 8px #ff99c2;
 }
