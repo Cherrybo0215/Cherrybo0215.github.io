@@ -146,12 +146,12 @@ header {
 }
 
 .profile-pic {
-    width: 160px;
-    height: 160px;
+    width: 180px;
+    height: 180px;
+    object-fit: cover; /* Keep image ratio and crop if needed */
     border-radius: 50%;
-    border: 5px solid var(--color-primary);
-    box-shadow: 0 0 30px var(--color-glow);
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    border: 4px solid #ddd;
+    transition: transform 0.3s ease;
 }
 
 .profile-pic:hover {
