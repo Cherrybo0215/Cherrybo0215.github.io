@@ -7,24 +7,24 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <meta name="description" content="Cheng Yubo's personal website showcasing academic journey, research interests, and technical skills in economics and data science at Shanghai Jiao Tong University." />
     <meta name="keywords" content="Cheng Yubo, Economics, Digital Economy, Data Science, Research Assistant, Python, Stata, Econometrics, PhD Application" />
 </head>
-<body>
+<body class="night-mode"> <div class="spotlight"></div>
 
-    <button id="theme-toggle">Switch to Day Mode</button>
+    <button id="theme-toggle">☀️</button>
 
     <div class="container">
-        <header>
+        <header class="hidden">
             <div class="header-content">
                 <img src="assets/1.jpg" alt="Cheng Yubo Profile Photo" class="profile-pic" />
                 <div class="text-block">
                     <h1>Cheng Yubo</h1>
                     <p>Economics Undergraduate | Shanghai Jiao Tong University</p>
                     <nav>
-                        <a href="#about">About Me</a>
+                        <a href="#about">About</a>
                         <a href="#education">Education</a>
                         <a href="#experience">Experience</a>
                         <a href="#skills">Skills</a>
@@ -36,21 +36,17 @@
         </header>
 
         <main>
-            <section id="about">
+            <section id="about" class="hidden">
                 <h2>About Me</h2>
                 <p>
                     I am an economics undergraduate student at Shanghai Jiao Tong University with a strong passion for the intersection of digital economy and data science. My academic goal is to leverage quantitative methods to analyze and address economic challenges driven by emerging technologies.
                 </p>
                 <p>
-                    Currently, I am actively seeking Research Assistant (RA) and Predoctoral (Predoc) opportunities where I can contribute my skills in econometrics, programming, and data analysis to real-world research projects, while further developing my academic and technical expertise.
-                </p>
-                <h3>Self-evaluation</h3>
-                <p>
-                    I am a motivated and detail-oriented learner, comfortable with both independent and collaborative work. My experience with large-scale datasets and proficiency in Python, Stata, and econometric methods have equipped me to solve complex problems effectively. I am eager to apply my knowledge in rigorous research environments and contribute to advancing understanding in digital economy and labor markets.
+                    Currently, I am actively seeking Research Assistant (RA) and Predoctoral (Predoc) opportunities where I can contribute my skills in econometrics, programming, and data analysis to real-world research projects.
                 </p>
             </section>
 
-            <section id="education">
+            <section id="education" class="hidden">
                 <h2>Education</h2>
                 <p><strong>Shanghai Jiao Tong University</strong><br>
                     B.A. in Economics (Sep 2022 – Jun 2026)<br>
@@ -63,7 +59,7 @@
                 </ul>
             </section>
 
-            <section id="experience">
+            <section id="experience" class="hidden">
                 <h2>Experience & Projects</h2>
                 <div class="project-item">
                     <h3>Research Assistant: Digital Transformation & Recruitment</h3>
@@ -74,21 +70,14 @@
                         <li>
                             Working paper:
                             <a href="https://arxiv.org/abs/2506.23230" target="_blank">
-                                <em>Digital Transformation and the Restructuring of Employment: Evidence from Chinese Listed Firms</em>
+                                <em>Digital Transformation and the Restructuring of Employment</em>
                             </a>
                         </li>
                     </ul>
                 </div>
-                <div class="project-item">
-                    <h3>China MCM Contest: Shanghai First Prize</h3>
-                    <p class="project-meta"><em>Jan 2024</em></p>
-                    <ul>
-                        <li>Built predictive models using Decision Trees and Scikit-learn for optimization tasks under time constraints.</li>
-                    </ul>
-                </div>
             </section>
 
-            <section id="skills">
+            <section id="skills" class="hidden">
                 <h2>Technical Skills</h2>
                 <div class="skills-category">
                     <h3>Languages & Tools:</h3>
@@ -96,47 +85,28 @@
                 </div>
                 <div class="skills-category">
                     <h3>Data Analysis:</h3>
-                    <p>Econometrics, Regression, Machine Learning (Classification, Clustering), A/B Testing</p>
-                </div>
-                <div class="skills-category">
-                    <h3>Languages:</h3>
-                    <p>Chinese (Native), English (CET-6: 577)</p>
+                    <p>Econometrics, Regression, Machine Learning, A/B Testing</p>
                 </div>
             </section>
 
-            <section id="interests">
+            <section id="interests" class="hidden">
                 <h2>Research Interests</h2>
                 <ul>
                     <li>Digital Transformation & Labor Markets</li>
                     <li>Economics of Platforms & E-commerce</li>
                     <li>Big Data Analytics in Finance (FinTech)</li>
                     <li>Computational Economics & Simulation</li>
-                    <li>Impact of Emerging Technologies</li>
                 </ul>
-                <p>I'm interested in empirical studies that use large datasets and advanced modeling techniques to address real-world economic challenges.</p>
             </section>
         </main>
 
-        <footer>
-            <p>Contact: <a href="mailto:chengyubo_sjtu@163.com">chengyubo_sjtu@163.com</a> | Phone: +86 137 3300 0105</p>
+        <footer class="hidden">
+            <p>Contact: <a href="mailto:chengyubo_sjtu@163.com">chengyubo_sjtu@163.com</a></p>
             <p>&copy; 2025 Cheng Yubo. All rights reserved.</p>
         </footer>
     </div>
 
-    <script>
-        const themeToggle = document.getElementById('theme-toggle');
-        const body = document.body;
-
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('day-mode');
-            
-            if (body.classList.contains('day-mode')) {
-                themeToggle.textContent = 'Switch to Night Mode';
-            } else {
-                themeToggle.textContent = 'Switch to Day Mode';
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 
 </body>
 </html>
