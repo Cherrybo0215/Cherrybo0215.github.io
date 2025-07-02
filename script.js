@@ -1,131 +1,200 @@
 /**
- * Personal Website Enhancement Script
+ * @class InteractivePage
+ * @author Gemini AI (Optimized for "高级感")
+ * @version 3.0
+ * * A professional, class-based implementation for advanced webpage interactions.
+ * This object-oriented approach encapsulates all logic for better organization,
+ * scalability, and maintainability, reflecting modern web development standards.
+ *
  * Features:
- * 1. Smooth "Lerp" Spotlight Cursor: Creates a fluid, trailing cursor light.
- * 2. View Transition API for Theme Toggling: Provides a circular reveal effect on theme change.
- * 3. Intersection Observer for Staggered Animations: Animates elements as they enter the viewport.
- * 4. Refactored for clarity and maintainability.
+ * - Perfectly synchronized spotlight cursor, optimized with requestAnimationFrame.
+ * - NEW: Parallax effect on header elements for a sense of depth.
+ * - Staggered scroll animations via IntersectionObserver.
+ * - Cutting-edge theme transitions using the View Transitions API.
  */
-document.addEventListener('DOMContentLoaded', () => {
-
+class InteractivePage {
     /**
-     * Initializes all interactive scripts.
+     * Initializes the application, selects DOM elements, and binds events.
      */
-    function init() {
-        setupSmoothCursor();
-        setupScrollAnimations();
-        setupThemeToggle();
-    }
+    constructor() {
+        // --- Element Selectors ---
+        this.spotlight = document.querySelector('.spotlight');
+        this.header = document.querySelector('header');
+        this.profilePic = document.querySelector('.profile-pic');
+        this.themeToggle = document.getElementById('theme-toggle');
+        this.hiddenElements = document.querySelectorAll('.hidden');
 
-    /**
-     * 1. Smooth Cursor Follower (Lerp)
-     * Creates a delightful, elastic-feeling spotlight that follows the mouse.
-     */
-    function setupSmoothCursor() {
-        const spotlight = document.querySelector('.spotlight');
-        if (!spotlight) return;
+        // --- State Management ---
+        this.isTicking = false; // Flag for optimizing rAF calls
 
-        // Don't run on touch devices for better performance
-        if (window.matchMedia("(pointer: coarse)").matches) {
-            spotlight.style.display = 'none';
-            return;
+        // --- Initialization ---
+        if (this._isTouchDevice()) {
+            if (this.spotlight) this.spotlight.style.display = 'none';
+        } else {
+            this._bindDesktopEvents();
         }
-
-        let mouse = { x: -100, y: -100 };
-        let current = { x: -100, y: -100 };
-        const easingFactor = 0.08; // Adjust for more/less "lag"
-
-        window.addEventListener('mousemove', e => {
-            mouse.x = e.clientX;
-            mouse.y = e.clientY;
-        });
-
-        const tick = () => {
-            // Lerp formula: current + (target - current) * easing
-            current.x += (mouse.x - current.x) * easingFactor;
-            current.y += (mouse.y - current.y) * easingFactor;
-            spotlight.style.transform = `translate(${current.x}px, ${current.y}px)`;
-            requestAnimationFrame(tick);
-        };
-
-        tick();
+        
+        this._bindGlobalEvents();
+        this._setupScrollObserver();
     }
 
     /**
-     * 2. Scroll-triggered Animations with Stagger
-     * Fades in sections and staggers list items on scroll.
+     * Binds events that should run globally (on all devices).
+     * @private
      */
-    function setupScrollAnimations() {
+    _bindGlobalEvents() {
+        if (this.themeToggle) {
+            this.themeToggle.addEventListener('click', this._handleThemeToggle.bind(this));
+        }
+        // Set initial theme toggle icon
+        this._updateThemeIcon();
+    }
+
+    /**
+     * Binds events specific to desktop (non-touch) devices.
+     * @private
+     */
+    _bindDesktopEvents() {
+        window.addEventListener('mousemove', this._handleMouseMove.bind(this));
+        window.addEventListener('scroll', this._handleScroll.bind(this));
+    }
+    
+    /**
+     * Sets up the IntersectionObserver for scroll-triggered animations.
+     * @private
+     */
+    _setupScrollObserver() {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    
-                    // Stagger animation for list items inside the visible section
                     const listItems = entry.target.querySelectorAll('ul > li');
                     listItems.forEach((item, index) => {
                         item.style.transitionDelay = `${index * 100}ms`;
                     });
-
-                    observer.unobserve(entry.target); // Animate only once
+                    observer.unobserve(entry.target);
                 }
             });
-        }, {
-            threshold: 0.1
-        });
+        }, { threshold: 0.1 });
 
-        document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
+        this.hiddenElements.forEach(el => observer.observe(el));
     }
 
     /**
-     * 3. Theme Toggle with View Transition API
-     * Creates a stunning circular reveal animation on theme change.
+     * Handles the mouse move event, queuing updates for animations.
+     * @param {MouseEvent} e - The mouse event.
+     * @private
      */
-    function setupThemeToggle() {
-        const themeToggle = document.getElementById('theme-toggle');
-        if (!themeToggle) return;
-
-        themeToggle.addEventListener('click', (e) => {
-            const isDayMode = document.body.classList.contains('day-mode');
-            
-            // Check for View Transition API support
-            if (document.startViewTransition) {
-                // Get click coordinates
-                const x = e.clientX;
-                const y = e.clientY;
-
-                document.startViewTransition(() => {
-                    toggleTheme(isDayMode);
-                }).ready.then(() => {
-                    // Create the circular reveal animation from the click point
-                    const clipPath = [
-                        `circle(0% at ${x}px ${y}px)`,
-                        `circle(${Math.hypot(window.innerWidth, window.innerHeight)}px at ${x}px ${y}px)`
-                    ];
-                    document.documentElement.animate({
-                        clipPath: isDayMode ? [...clipPath].reverse() : clipPath
-                    }, {
-                        duration: 500,
-                        easing: 'ease-in-out',
-                        pseudoElement: isDayMode ? '::view-transition-old(root)' : '::view-transition-new(root)'
-                    });
-                });
-            } else {
-                // Fallback for browsers without support
-                toggleTheme(isDayMode);
-            }
-        });
-
-        function toggleTheme(isDay) {
-            document.body.classList.toggle('day-mode', !isDay);
-            document.body.classList.toggle('night-mode', isDay);
-            themeToggle.textContent = isDay ? '☀️' : '🌙';
+    _handleMouseMove(e) {
+        if (!this.isTicking) {
+            window.requestAnimationFrame(() => {
+                this._updateSpotlight(e.clientX, e.clientY);
+                this.isTicking = false;
+            });
+            this.isTicking = true;
         }
-        
-        // Set initial icon
-        themeToggle.textContent = document.body.classList.contains('day-mode') ? '🌙' : '☀️';
     }
 
-    // Run initialization
-    init();
+    /**
+     * Handles the scroll event for effects like parallax.
+     * @private
+     */
+    _handleScroll() {
+        if (!this.isTicking) {
+            window.requestAnimationFrame(() => {
+                this._applyParallax();
+                this.isTicking = false;
+            });
+            this.isTicking = true;
+        }
+    }
+
+    /**
+     * Updates the spotlight position for a 1:1 sync with the cursor.
+     * @param {number} x - The clientX coordinate of the mouse.
+     * @param {number} y - The clientY coordinate of the mouse.
+     * @private
+     */
+    _updateSpotlight(x, y) {
+        if (this.spotlight) {
+            // Perfect 1:1 synchronization
+            this.spotlight.style.transform = `translate(${x}px, ${y}px)`;
+        }
+    }
+
+    /**
+     * Applies a subtle parallax effect to the profile picture.
+     * @private
+     */
+    _applyParallax() {
+        if (this.profilePic) {
+            const scrollY = window.scrollY;
+            // The factor (0.1) determines how strong the parallax effect is.
+            // A smaller number means less movement.
+            this.profilePic.style.transform = `translateY(${scrollY * 0.1}px)`;
+        }
+    }
+
+    /**
+     * Handles the theme toggling logic using the View Transition API.
+     * @param {MouseEvent} e - The click event.
+     * @private
+     */
+    _handleThemeToggle(e) {
+        const isDayMode = document.body.classList.contains('day-mode');
+        
+        const toggle = () => {
+            document.body.classList.toggle('day-mode', !isDayMode);
+            document.body.classList.toggle('night-mode', isDayMode);
+            this._updateThemeIcon();
+        };
+
+        // Use the cutting-edge View Transition API if available
+        if (document.startViewTransition) {
+            const x = e.clientX;
+            const y = e.clientY;
+
+            document.startViewTransition(toggle).ready.then(() => {
+                const clipPath = [
+                    `circle(0% at ${x}px ${y}px)`,
+                    `circle(${Math.hypot(window.innerWidth, window.innerHeight)}px at ${x}px ${y}px)`
+                ];
+                document.documentElement.animate({
+                    clipPath: isDayMode ? [...clipPath].reverse() : clipPath
+                }, {
+                    duration: 500,
+                    easing: 'ease-in-out',
+                    pseudoElement: isDayMode ? '::view-transition-old(root)' : '::view-transition-new(root)'
+                });
+            });
+        } else {
+            // Fallback for older browsers
+            toggle();
+        }
+    }
+    
+    /**
+     * Updates the theme toggle button's icon based on the current theme.
+     * @private
+     */
+    _updateThemeIcon() {
+        if (this.themeToggle) {
+             this.themeToggle.textContent = document.body.classList.contains('day-mode') ? '🌙' : '☀️';
+        }
+    }
+
+    /**
+     * Checks if the current device is a touch-based primary input device.
+     * @returns {boolean}
+     * @private
+     */
+    _isTouchDevice() {
+        return window.matchMedia("(pointer: coarse)").matches;
+    }
+}
+
+// --- App Initialization ---
+// Ensures the script runs after the DOM is fully loaded.
+document.addEventListener('DOMContentLoaded', () => {
+    new InteractivePage();
 });
