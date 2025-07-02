@@ -149,6 +149,7 @@ header {
     width: 160px;
     height: 160px;
     border-radius: 50%;
+    object-fit: cover; /* Keep image ratio and crop if needed */
     border: 5px solid var(--color-primary);
     box-shadow: 0 0 30px var(--color-glow);
     transition: transform var(--transition-fast), box-shadow var(--transition-fast);
