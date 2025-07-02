@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 1. THEME TOGGLE (with View Transitions API) ---
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
-
+    
     // Function to apply theme from localStorage
     const applyStoredTheme = () => {
         const storedTheme = localStorage.getItem('theme');
