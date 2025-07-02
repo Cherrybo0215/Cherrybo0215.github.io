@@ -8,105 +8,110 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <meta name="description" content="Cheng Yubo's personal website showcasing academic journey, research interests, and technical skills in economics and data science at Shanghai Jiao Tong University." />
     <meta name="keywords" content="Cheng Yubo, Economics, Digital Economy, Data Science, Research Assistant, Python, Stata, Econometrics, PhD Application" />
 </head>
-<body class="night-mode"> <div class="spotlight"></div>
-
-    <button id="theme-toggle">☀️</button>
+<body>
+    <div class="noise-overlay"></div>
+    <div class="gradient-bg"></div>
 
     <div class="container">
         <header class="hidden">
-            <div class="header-content">
-                <img src="assets/1.jpg" alt="Cheng Yubo Profile Photo" class="profile-pic" />
-                <div class="text-block">
-                    <h1>Cheng Yubo</h1>
-                    <p>Economics Undergraduate | Shanghai Jiao Tong University</p>
-                    <nav>
-                        <a href="#about">About</a>
-                        <a href="#education">Education</a>
-                        <a href="#experience">Experience</a>
-                        <a href="#skills">Skills</a>
-                        <a href="#interests">Interests</a>
-                        <a href="assets/CV_Eng.pdf" target="_blank" class="cv-button">Download CV</a>
-                    </nav>
-                </div>
+            <div class="header-top">
+                 <img src="assets/1.jpg" alt="Cheng Yubo Profile Photo" class="profile-pic magnetic" />
+                 <button id="theme-toggle" class="magnetic" title="Toggle theme">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sun-and-moon">
+                        <mask class="moon" id="moon-mask">
+                            <rect x="0" y="0" width="100%" height="100%" fill="white" />
+                            <circle cx="24" cy="10" r="6" fill="black" />
+                        </mask>
+                        <circle class="sun" cx="12" cy="12" r="6" mask="url(#moon-mask)"/>
+                        <g class="sun-beams">
+                            <line x1="12" y1="1" x2="12" y2="3" />
+                            <line x1="12" y1="21" x2="12" y2="23" />
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                            <line x1="1" y1="12" x2="3" y2="12" />
+                            <line x1="21" y1="12" x2="23" y2="12" />
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                        </g>
+                    </svg>
+                </button>
             </div>
+            <div class="header-text">
+                <h1>Cheng Yubo</h1>
+                <p>Economics Undergraduate | Shanghai Jiao Tong University</p>
+            </div>
+            <nav>
+                <a href="#grid-about" class="magnetic">About</a>
+                <a href="#grid-experience" class="magnetic">Experience</a>
+                <a href="#grid-skills" class="magnetic">Skills</a>
+                <a href="assets/CV_Eng.pdf" target="_blank" class="cv-button magnetic">Download CV</a>
+            </nav>
         </header>
 
-        <main>
-            <section id="about" class="hidden">
-                <h2>About Me</h2>
-                <p>
-                    I am an economics undergraduate student at Shanghai Jiao Tong University with a strong passion for the intersection of digital economy and data science. My academic goal is to leverage quantitative methods to analyze and address economic challenges driven by emerging technologies.
-                </p>
-                <p>
-                    Currently, I am actively seeking Research Assistant (RA) and Predoctoral (Predoc) opportunities where I can contribute my skills in econometrics, programming, and data analysis to real-world research projects.
-                </p>
-            </section>
+        <main class="bento-grid">
+            <div id="grid-about" class="bento-card card-about hidden">
+                <div class="card-content">
+                    <h2>About Me</h2>
+                    <p>I am an economics undergraduate at SJTU, passionate about the intersection of digital economy and data science. My goal is to leverage quantitative methods to analyze and address economic challenges driven by emerging technologies.</p>
+                </div>
+            </div>
 
-            <section id="education" class="hidden">
-                <h2>Education</h2>
-                <p><strong>Shanghai Jiao Tong University</strong><br>
-                    B.A. in Economics (Sep 2022 – Jun 2026)<br>
-                    GPA: 88.01/100 | Rank: Top 20%
-                </p>
-                <h3>Relevant Coursework:</h3>
-                <ul>
-                    <li>Econometrics, Probability & Statistics</li>
-                    <li>Programming: Python, Stata, C++, Matlab, LaTeX</li>
-                </ul>
-            </section>
-
-            <section id="experience" class="hidden">
-                <h2>Experience & Projects</h2>
-                <div class="project-item">
-                    <h3>Research Assistant: Digital Transformation & Recruitment</h3>
-                    <p class="project-meta"><em>SJTU Faculty of Economics | Mar 2025 – Present</em></p>
+            <div id="grid-experience" class="bento-card card-experience hidden">
+                 <div class="card-content">
+                    <h3>Research Assistant</h3>
+                    <p class="meta">Digital Transformation & Recruitment | Mar 2025 – Present</p>
                     <ul>
-                        <li>Analyzed how digital transformation affects corporate hiring strategies using large-scale datasets.</li>
-                        <li>Performed data cleaning and exploratory analysis with Stata and Python.</li>
-                        <li>
-                            Working paper:
-                            <a href="https://arxiv.org/abs/2506.23230" target="_blank">
-                                <em>Digital Transformation and the Restructuring of Employment</em>
-                            </a>
-                        </li>
+                        <li>Analyzed how digital transformation affects corporate hiring using large-scale datasets with Stata and Python.</li>
+                        <li>Working Paper: <a href="https://arxiv.org/abs/2506.23230" target="_blank">Digital Transformation and Employment</a></li>
                     </ul>
                 </div>
-            </section>
+            </div>
 
-            <section id="skills" class="hidden">
-                <h2>Technical Skills</h2>
-                <div class="skills-category">
-                    <h3>Languages & Tools:</h3>
-                    <p>Python (Pandas, NumPy, Scikit-learn), Stata, MATLAB, SQL, Git, LaTeX</p>
+            <div id="grid-education" class="bento-card card-education hidden">
+                <div class="card-content">
+                    <h3>Education</h3>
+                    <p><strong>Shanghai Jiao Tong University</strong></p>
+                    <p class="meta">B.A. in Economics | 2022 – 2026</p>
+                    <p class="meta">GPA: 88.01/100 | Top 20%</p>
                 </div>
-                <div class="skills-category">
-                    <h3>Data Analysis:</h3>
-                    <p>Econometrics, Regression, Machine Learning, A/B Testing</p>
-                </div>
-            </section>
+            </div>
 
-            <section id="interests" class="hidden">
-                <h2>Research Interests</h2>
-                <ul>
-                    <li>Digital Transformation & Labor Markets</li>
-                    <li>Economics of Platforms & E-commerce</li>
-                    <li>Big Data Analytics in Finance (FinTech)</li>
-                    <li>Computational Economics & Simulation</li>
-                </ul>
-            </section>
+            <div id="grid-skills" class="bento-card card-skills hidden">
+                 <div class="card-content">
+                    <h3>Skills</h3>
+                    <p><strong>Tools:</strong> Python (Pandas, Scikit-learn), Stata, SQL, Git</p>
+                    <p><strong>Analysis:</strong> Econometrics, Machine Learning, A/B Testing</p>
+                </div>
+            </div>
+
+             <div id="grid-interests" class="bento-card card-interests hidden">
+                <div class="card-content">
+                    <h3>Interests</h3>
+                     <ul>
+                        <li>Digital Labor Markets</li>
+                        <li>Platform Economics</li>
+                        <li>Computational Econ</li>
+                    </ul>
+                </div>
+            </div>
+
+             <div id="grid-contact" class="bento-card card-contact hidden">
+                 <div class="card-content">
+                     <h3>Contact</h3>
+                     <a href="mailto:chengyubo_sjtu@163.com" class="contact-link magnetic">chengyubo_sjtu@163.com</a>
+                 </div>
+            </div>
         </main>
 
-        <footer class="hidden">
-            <p>Contact: <a href="mailto:chengyubo_sjtu@163.com">chengyubo_sjtu@163.com</a></p>
+        <footer>
             <p>&copy; 2025 Cheng Yubo. All rights reserved.</p>
         </footer>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="script.js"></script>
-
 </body>
 </html>
