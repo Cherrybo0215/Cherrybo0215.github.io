@@ -115,10 +115,11 @@ class InteractivePage {
      * @param {number} y - The clientY coordinate of the mouse.
      * @private
      */
-    _updateSpotlight(x, y) {
+   _updateSpotlight(x, y) {
         if (this.spotlight) {
-            // Perfect 1:1 synchronization
-            this.spotlight.style.transform = `translate(${x}px, ${y}px)`;
+            const width = this.spotlight.offsetWidth;
+            const height = this.spotlight.offsetHeight;
+            this.spotlight.style.transform = `translate(${x - width / 2}px, ${y - height / 2}px)`;
         }
     }
 
